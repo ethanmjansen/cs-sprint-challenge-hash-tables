@@ -6,7 +6,18 @@ def finder(files, queries):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    cache = {}
+    result = []
+
+    for i in files:
+        new_i = i.split('/')
+        for j in new_i:
+            if j not in cache:
+                cache[j] = i
+
+    for k, v in cache.items():
+        if k in queries:
+            result.append(v)
 
     return result
 
